@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 interface RecommendedProductsProps {
-  products: any[]
-  onProductClick: (product: any) => void
-  onAboutUs: () => void
-  onContactUs: () => void
+  products: any[];
+  onProductClick: (product: any) => void;
+  onAboutUs: () => void;
+  onContactUs: () => void;
 }
 
 export default function RecommendedProducts({
@@ -35,19 +35,21 @@ export default function RecommendedProducts({
             >
               <div className="relative w-full aspect-square mb-3 border rounded-lg overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=200&width=200"
+                  src={product.img}
                   alt={product.name}
                   width={200}
                   height={200}
                   className="object-cover w-full h-full"
                 />
               </div>
-              <p className="text-sm text-black font-medium text-center">{product.name}</p>
+              <p className="text-sm text-black font-medium text-center">
+                {product.name}
+              </p>
               <p className="text-sm text-black font-bold">{product.price}</p>
               <Button
                 onClick={(e) => {
-                  e.stopPropagation()
-                  onProductClick(product)
+                  e.stopPropagation();
+                  onProductClick(product);
                 }}
                 className="bg-[#53a939] hover:bg-[#53a939]/80 text-white text-sm mt-3 py-1 px-4 h-auto"
               >
@@ -58,7 +60,10 @@ export default function RecommendedProducts({
         </div>
 
         <div className="grid grid-cols-2 text-center">
-          <Button onClick={onAboutUs} className="bg-[#6974e6] hover:bg-[#535f9e] text-white rounded-none py-3 text-lg">
+          <Button
+            onClick={onAboutUs}
+            className="bg-[#6974e6] hover:bg-[#535f9e] text-white rounded-none py-3 text-lg"
+          >
             Sobre nosotros
           </Button>
           <Button
@@ -70,5 +75,5 @@ export default function RecommendedProducts({
         </div>
       </div>
     </div>
-  )
+  );
 }

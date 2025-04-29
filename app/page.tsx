@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import WelcomeScreen from "@/components/welcome-screen"
-import ProductDescription from "@/components/product-description"
-import RecommendedProducts from "@/components/recommended-products"
-import AboutUs from "@/components/about-us"
-import ContactUs from "@/components/contact-us"
-import ProductDetail from "@/components/product-detail"
+import { useState } from "react";
+import WelcomeScreen from "@/components/welcome-screen";
+import ProductDescription from "@/components/product-description";
+import RecommendedProducts from "@/components/recommended-products";
+import AboutUs from "@/components/about-us";
+import ContactUs from "@/components/contact-us";
+import ProductDetail from "@/components/product-detail";
 
 // Product data
 const products = [
@@ -18,6 +18,7 @@ const products = [
     longDescription:
       "Nuestro dulce de guayaba tradicional de 250g, elaborado con guayabas frescas seleccionadas a mano y azúcar de caña. Perfecto para acompañar quesos, galletas o disfrutar solo como postre. Un sabor auténtico que evoca la tradición de nuestras recetas familiares.",
     size: "250g",
+    img: "/guayaba250.png",
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ const products = [
     longDescription:
       "Pack familiar de dulce de guayaba de 500g, ideal para compartir en reuniones o tener siempre en casa. Elaborado con guayabas maduras y azúcar de caña, siguiendo nuestra receta tradicional que conserva todo el sabor y aroma de la fruta fresca.",
     size: "500g",
+    img: "/guayaba500.png",
   },
   {
     id: 3,
@@ -36,6 +38,7 @@ const products = [
     longDescription:
       "Presentación mediana de 1kg de nuestro dulce de guayaba premium. Elaborado con ingredientes 100% naturales, sin conservantes ni colorantes artificiales. Su textura suave y sabor intenso lo convierten en el acompañamiento perfecto para quesos, panes y postres.",
     size: "1kg",
+    img: "/guayaba1.png",
   },
   {
     id: 4,
@@ -45,24 +48,29 @@ const products = [
     longDescription:
       "Nuestra presentación especial de 10kg de dulce de guayaba premium. Elaborado artesanalmente con guayabas seleccionadas en su punto óptimo de maduración y azúcar de caña. Ideal para negocios de repostería, hoteles o para quienes disfrutan de este tradicional dulce con frecuencia.",
     size: "10kg",
+    img: "/guayaba10.png",
   },
-]
+];
 
 export default function Home() {
-  const [currentScreen, setCurrentScreen] = useState<string>("welcome")
-  const [selectedProduct, setSelectedProduct] = useState<any>(null)
+  const [currentScreen, setCurrentScreen] = useState<string>("welcome");
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
   const handleProductClick = (product: any) => {
-    setSelectedProduct(product)
-    setCurrentScreen("product-detail")
-  }
+    setSelectedProduct(product);
+    setCurrentScreen("product-detail");
+  };
 
   return (
     <main className="min-h-screen w-full bg-gradient-to-b from-[#c7beb7] to-[#d9d9d9]">
       <div className="w-full h-full">
-        {currentScreen === "welcome" && <WelcomeScreen onEnter={() => setCurrentScreen("description")} />}
+        {currentScreen === "welcome" && (
+          <WelcomeScreen onEnter={() => setCurrentScreen("description")} />
+        )}
 
-        {currentScreen === "description" && <ProductDescription onAccept={() => setCurrentScreen("products")} />}
+        {currentScreen === "description" && (
+          <ProductDescription onAccept={() => setCurrentScreen("products")} />
+        )}
 
         {currentScreen === "products" && (
           <RecommendedProducts
@@ -99,5 +107,5 @@ export default function Home() {
         )}
       </div>
     </main>
-  )
+  );
 }
