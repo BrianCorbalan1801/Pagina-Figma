@@ -58,8 +58,8 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#c7beb7] to-[#d9d9d9]">
-      <div className="max-w-md w-full mx-auto">
+    <main className="min-h-screen w-full bg-gradient-to-b from-[#c7beb7] to-[#d9d9d9]">
+      <div className="w-full h-full">
         {currentScreen === "welcome" && <WelcomeScreen onEnter={() => setCurrentScreen("description")} />}
 
         {currentScreen === "description" && <ProductDescription onAccept={() => setCurrentScreen("products")} />}

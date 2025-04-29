@@ -9,7 +9,7 @@ interface WelcomeScreenProps {
 
 export default function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
   return (
-    <div className="flex flex-col items-center justify-center p-8 bg-gradient-to-b from-[#c7beb7] to-[#d9d9d9] rounded-lg shadow-md">
+    <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gradient-to-b from-[#c7beb7] to-[#d9d9d9]">
       <div className="relative w-64 h-64 mb-4">
         <Image
           src="/placeholder.svg?height=256&width=256"
